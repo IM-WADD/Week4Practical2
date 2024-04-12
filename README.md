@@ -36,6 +36,15 @@ Fill in all required inputs (Chrome will prompt you if you forget one) and click
 
 **In your JavaScript file, add a click event listener and event handler to your submit button using the `addEventListener` method.** For the event handler, you can use a named function or an anonymous function.
 
+All functions you've written to date are named - they have a name that you then use to call the function elsewhere in your code. Anonymous functions do not have names. This means they can't be called directly elsewhere in your code. Instead, they are usually passed as arguments to other functions. Here is an example:
+
+```
+// Anonymous function with no parameters
+function () {
+  // function contents
+}
+```
+
 Here are the factors I consider when deciding if I want a named function or an anonymous function for an event handler:
 
 - Is the event handler unique to a single element?
@@ -49,6 +58,7 @@ For this exercise, my event listener looks like this:
 
 ```
 document.getElementById("submit").addEventListener("click", function (event) {
+  // Function contents go here
 });
 ```
 

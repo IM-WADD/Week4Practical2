@@ -1,4 +1,4 @@
-# Practical 14 (week 7, practical 2): Forms
+# Week 4 Practical 2: Forms
 
 In Stage 1 of this practical you will implement a contact form. It is important you get the form working as it will be the basis for future JS exercises on working with and storing data. Stage 2 is encouraged but optional and focuses on styling, including setting styles based on input values.
 

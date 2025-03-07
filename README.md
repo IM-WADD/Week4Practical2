@@ -76,7 +76,7 @@ This statement prevents any default behaviours associated with an event from hap
     - prevents the browser's default response to a required input being left blank.
 - For all events, `preventDefault()` stops an event from bubbling up the DOM tree.
 
-For this practical, you are temporarily preventing the default behaviour to do some basic client-side form processing. Next week, you will learn how to store submitted data in the client and allow default behaviour to occur in a meaningful manner.
+For this practical, you are temporarily preventing the default behaviour to do some basic client-side form processing. In week 7, you will learn how to store submitted data in the client and allow default behaviour to occur in a meaningful manner.
 
 ### Exercise 1.3: Conditional rendering of form inputs
 

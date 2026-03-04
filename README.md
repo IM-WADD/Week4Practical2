@@ -5,20 +5,22 @@ In Stage 1 of this practical you will implement a contact form. It is important 
 ## Stage 1: Creating a Contact Form
 For this stage, you will need an HTML file, a CSS file, and a JS file. The CSS and JS files should be linked to the HTML file.
 
+You will find the [W3Schools list of input types](https://www.w3schools.com/html/html_form_input_types.asp) helpful as you work on this practical.
+
 ### Exercise 1.1: Create the HTML input fields
 You are creating a website for a cat rescue centre. Your target users are potential adopters who want to express interest in adopting a cat. Potential adopters need to provide:
-1.	Their full name*
-2.	An email address*
-3.	A phone number
-4.	Whether they have outside space*
-5.	Whether or not they have children living in or regularly visiting the home.* If they have children, the age ranges should be provided
-6.	Whether there are other pets in the home.* If there are other pets, then they need to provide the species of the other pets (e.g. dog, bird, fish)
+1.	Their full name* (a text input)
+2.	An email address* (a text or email input)
+3.	A phone number (a text input)
+4.	Whether they have outside space* (radio buttons)
+5.	Whether or not they have children living in or regularly visiting the home* (radio buttons). If they have children, the age ranges should be provided in a text input
+6.	Whether there are other pets in the home* (radio buttons). If there are other pets, then they need to provide the species of the other pets (e.g. dog, bird, fish). You can use a text input or some checkboxes.
 
 As per web convention, the * is used to indicate that a field is required.
 
-Using HTML, create a form that allows potential adopters to submit the above information. Don't worry about CSS or JS just yet; focus on choosing the right input types and structuring your form.
+Using HTML, create a form that allows potential adopters to submit the above information. Don't worry about CSS or JS just yet; focus on creating the right input types and structuring your form.
 
-- Your form does not need an action attribute. You will eventually use JavaScript rather than a server-side script. 
+- Your form does not need any attributes. 
 - Make sure all your form fields have proper labels, preferably using the explicit labelling approach.
 - All input fields should have unique name attributes.
 - Don't forget a submit button!
@@ -53,7 +55,7 @@ Here are the factors I consider when deciding if I want a named function or an a
         - If no -> use an anonymous function as it is better for security (anonymous functions can't be called by other scripts)
     - If no -> use a named function
 
-These considerations aren't hard and fast rules and there are always exceptions.
+These considerations aren't hard and fast rules and there are always exceptions. For example, many people find named functions more readable.
 For this exercise, my event listener looks like this:
 
 ```
@@ -86,7 +88,7 @@ In this exercise, you will use a combination of CSS and JavaScript to show these
 
 **In your CSS file, set the follow-up questions (including labels!) to have `display: none`.** Check the live preview of your form to make sure the two follow up questions are not visible. 
 
-To show/hide input fields dependent on the value of some other input, you will need to add an event listener for a "change" event on the controlling questions (5 & 6). Questions 5 (children) and 6 (pets) should both have radio button inputs as there are two exclusive answer options (yes / no). If you have used different input types for either question, change them to radio buttons. The radio button options in each question should also be set up as groups—each radio button within a group should have the same name attribute, and the two groups should have different name attributes. For example, in my HTML, the yes and no options for question 5 have name "children" and the yes and no options for question 6 have name "pets".
+To show/hide input fields dependent on the value of some other input, you will need to add an event listener for a "change" event on the controlling questions (5 & 6). Questions 5 (children) and 6 (pets) should both have radio button inputs as there are two exclusive answer options (yes / no). The radio button options in each question should also be set up as groups—each radio button within a group should have the same name attribute, and the two groups should have different name attributes. For example, in my HTML, the yes and no options for question 5 have name "children" and the yes and no options for question 6 have name "pets".
 
 You will handle change events on question 5 first. **In your script file, use the `getElementsByName()` selector to get all radio buttons relevant to questions 5.** Save the HTMLCollection returned by this method as a variable. Here is my code for reference (modify it to match your HTML):
 

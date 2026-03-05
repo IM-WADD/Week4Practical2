@@ -36,35 +36,18 @@ Your form should have a submit button with a unique id attribute. Mine looks lik
 
 Fill in all required inputs (Chrome will prompt you if you forget one) and click Submit. What happens? … You should see that the page refreshes and all input is cleared. This is the default behaviour of input type submit. If your form had an action attribute with a server-side processing script, the values of all named inputs would be sent to the script before the page refreshed. As we're not using a server-side script, you'll need to add some JavaScript to process it instead.
 
-**In your JavaScript file, add a click event listener and event handler to your submit button using the `addEventListener` method.** For the event handler, you can use a named function or an anonymous function.
+**In your JavaScript file, add a click event listener and event handler to your submit button using the `addEventListener` method.** Remember the steps:
 
-All functions you've written to date are named - they have a name that you then use to call the function elsewhere in your code. Anonymous functions do not have names. This means they can't be called directly elsewhere in your code. Instead, they are usually passed as arguments to other functions. Here is an example:
+1. **Select** the element that will listen for an event. In this case, you can select the button by its id (it should have an id attribute!).
+2. Write an **event handler function**. You choose the function name. Put a console.log() in the function to test it.
+3. **Bind** the event handler to the selected element for a **specific event**. To bind, use the `addEventListener()` method. The event to listen for is "click".
 
-```
-// Anonymous function with no parameters
-function () {
-  // function contents
-}
-```
+Check the slides / lecture code for examples! So far, you have only seen examples named functions. If you would like to explore _anonymouse functions_, have a look at [this resource](https://www.geeksforgeeks.org/javascript/javascript-anonymous-functions/).
 
-Here are the factors I consider when deciding if I want a named function or an anonymous function for an event handler:
-
-- Is the event handler unique to a single element?
-    - If yes -> Is there any reason why I might want to remove or change that event listener while the webpage is running? (rare!)
-        - If yes -> use a named function as these can be removed
-        - If no -> use an anonymous function as it is better for security (anonymous functions can't be called by other scripts)
-    - If no -> use a named function
-
-These considerations aren't hard and fast rules and there are always exceptions. For example, many people find named functions more readable.
-For this exercise, my event listener looks like this:
-
-```
-document.getElementById("submit").addEventListener("click", function (event) {
-  // Function contents go here
-});
-```
-
-I used an anonymous function. Make sure the id in the selector matches the id of your submit button. Notice that I have included the event parameter—you will need this in your event handler.
+Troubleshooting (if you click the button and nothing happens):
+- Check the id used to select the button matches the id in the HTML EXACTLY.
+- Check the function name passed to `addEventListener` matches your event handler EXACTLY and that you have passed only the name, no brackets.
+- Check you've used console.log() correctly in the event handler function.
 
 **Next, prevent the page from refreshing and clearing the form inputs by adding the following line as the first statement in your event handler:**
 
@@ -72,8 +55,8 @@ I used an anonymous function. Make sure the id in the selector matches the id of
 event.preventDefault();
 ```
 
-This statement prevents any default behaviours associated with an event from happening and should be used very rarely and only with good reason. It is also important to be aware of the side effects of preventing a particular event: 
-- In the case of a submit event, `preventDefault()` 
+This statement prevents any default behaviours associated with an event from happening and should be used only with good reason. It is also important to be aware of the side effects of preventing a particular event: 
+- In the case of a submit event, `preventDefault()`:
     - prevents the page from submitting and the form values from being sent to the script in the form's action attribute (if it exists). 
     - prevents the browser's default response to a required input being left blank.
 - For all events, `preventDefault()` stops an event from bubbling up the DOM tree.
@@ -82,7 +65,7 @@ For this practical, you are temporarily preventing the default behaviour to do s
 
 ### Exercise 1.3: Conditional rendering of form inputs
 
-Two of the required inputs (whether there are kids and whether there are other pets) have follow up questions that are only relevant if the user selects a particular option. For example, the question about the age range of any kids is only relevant if the user indicates that they do have children at home. If they do have kids, it should also be a requirement for the user to provide the ages of the children.
+Two of the required inputs (whether there are kids and whether there are other pets) have follow up questions that are only relevant if the user selects a particular option. For example, the question about the age range of any kids is only relevant if the user indicates that they do have children at home. If they do have kids, it should also be a requirement for the user to provide the ages of the children. If they don't have kids, they should be able to leave the age input empty.
 
 In this exercise, you will use a combination of CSS and JavaScript to show these follow-up questions if and only if the relevant required fields are selected.
 
@@ -106,8 +89,6 @@ for (let childOption of children) {
     childOption.addEventListener("change", childOptionChanged);
 }
 ```
-
-This time I used a named function for the event handler because multiple elements will use the same event handler.
 
 **Inside your event handler function, add a conditional that checks the value of the event target (`event.target.value`) and changes the CSS display property of the follow up question as appropriate.** The event target value will be the `value` attribute you gave each radio button for questions 5. I used values of "yes" and "no". Here is my completed event handler function:
 

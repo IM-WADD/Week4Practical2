@@ -42,7 +42,7 @@ Fill in all required inputs (Chrome will prompt you if you forget one) and click
 2. Write an **event handler function**. You choose the function name. Put a console.log() in the function to test it.
 3. **Bind** the event handler to the selected element for a **specific event**. To bind, use the `addEventListener()` method. The event to listen for is "click".
 
-Check the slides / lecture code for examples! So far, you have only seen examples named functions. If you would like to explore _anonymouse functions_, have a look at [this resource](https://www.geeksforgeeks.org/javascript/javascript-anonymous-functions/).
+Check the slides / lecture code for examples! So far, you have only seen examples named functions. If you would like to explore _anonymous functions_, have a look at [this resource](https://www.geeksforgeeks.org/javascript/javascript-anonymous-functions/).
 
 Troubleshooting (if you click the button and nothing happens):
 - Check the id used to select the button matches the id in the HTML EXACTLY.
